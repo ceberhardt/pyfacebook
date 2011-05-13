@@ -20,7 +20,7 @@ from models import User
 @facebook.require_login()
 def canvas(request):
     # Get the User object for the currently logged in user
-    user = User.objects.get_current()
+    user = User.objects.get_current(request.facebook)
 
     # Check if we were POSTed the user's new language of choice
     if 'language' in request.POST:
